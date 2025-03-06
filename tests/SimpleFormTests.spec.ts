@@ -1,6 +1,12 @@
 import {expect, test} from "@playwright/test";
 
 test.describe("Local simple form tests", async () => {
+    test.beforeEach(async ({ page }) => {
+            const path = require('path');
+            const filePath = `file://${path.resolve('src/simpleForm.html')}`;
+            await page.goto(filePath);
+        })
+
     test('Form opens', async ({ page }) => {
         //locators
         const emailField = page.getByTestId("email");
@@ -11,7 +17,7 @@ test.describe("Local simple form tests", async () => {
 
 
         //actions
-        await page.goto('http://localhost:3000');
+       // await page.goto('http://localhost:3000');
         await expect(emailField).toBeVisible();
         //expect(await emailField.innerText()).toBe("test@test.com");
         await expect(usernameField).toBeVisible();
