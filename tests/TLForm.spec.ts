@@ -34,5 +34,4 @@ test.describe("TL form", async () => {
         await expect(popUpClose).toBeVisible();
         await popUpClose.click();
     });
-
 })
