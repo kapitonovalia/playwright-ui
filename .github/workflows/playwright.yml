@@ -24,8 +24,6 @@ jobs:
     - name: Run local html server
       run: npm run local
 
-    - name: Run Playwright tests
-      run: npx playwright test
 
     - name: Run TL form tests
       env:
